@@ -15,7 +15,7 @@ export default function RestaurantMenu({ restaurant, onBack }) {
   const categories = ['All', ...restaurant.menuCategories];
 
   return (
-    <div className="w-full py-10 px-4 md:px-10">
+    <div className="w-full py-6 md:py-10 px-4 md:px-8 lg:px-10">
       {/* Header */}
       <Button
         onClick={onBack}
@@ -71,7 +71,7 @@ export default function RestaurantMenu({ restaurant, onBack }) {
       </div>
 
       {/* Menu Items */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {filteredMenu.map((item) => (
           <div
             key={item.id}

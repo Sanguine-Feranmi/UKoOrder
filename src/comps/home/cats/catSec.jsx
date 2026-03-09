@@ -43,8 +43,8 @@ export default function CatSec({
 
   return (
     <section className="w-full py-10">
-      <div className="flex items-center justify-between mb-6 px-4 md:px-10">
-        <h2 className="text-2xl md:text-3xl font-bold">
+      <div className="flex items-center justify-between mb-6 px-4 md:px-8 lg:px-10">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
           {title}
         </h2>
 
@@ -60,12 +60,12 @@ export default function CatSec({
 
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-4 md:px-10"
+        className="flex gap-4 md:gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-4 md:px-8 lg:px-10"
       >
         {infiniteItems.map((item, index) => (
           <div
             key={index}
-            className="min-w-[240px] bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition duration-300 cursor-pointer flex-shrink-0"
+            className="min-w-[180px] sm:min-w-[220px] md:min-w-[240px] bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition duration-300 cursor-pointer flex-shrink-0"
           >
             <div className="h-48 w-full overflow-hidden">
               <img

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import Button from '../shared/Button';
 
-export default function Contact() {
+export default function Contact({ onNavigate }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,16 +25,16 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 md:px-10">
+    <div className="min-h-screen bg-gray-50 py-6 md:py-10 px-4 md:px-8 lg:px-10">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-gray-600">
             We'd love to hear from you. Get in touch with us!
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12">
           <div className="bg-white rounded-xl shadow-md p-6 text-center">
             <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <Phone className="text-primary" size={28} />

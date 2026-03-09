@@ -44,26 +44,26 @@ function App() {
     
     switch(currentPage) {
       case 'home':
-        return <Home />;
+        return <Home onNavigate={handleNavigate} />;
       case 'restaurants':
         return <Restaurants />;
       case 'about':
-        return <About />;
+        return <About onNavigate={handleNavigate} />;
       case 'contact':
-        return <Contact />;
+        return <Contact onNavigate={handleNavigate} />;
       default:
-        return <Home />;
+        return <Home onNavigate={handleNavigate} />;
     }
   }
 
   return (
     <CartProvider>
       <NavigationMenuDemo onNavigate={handleNavigate} currentPage={currentPage} />
-      {currentPage === 'home' && <Banner className="hidden md:block" />}
+      {currentPage === 'home' && <Banner onNavigate={handleNavigate} />}
       <div className="min-h-screen">
         {renderPage()}
       </div>
-      <Footer/>
+      <Footer onNavigate={handleNavigate} />
       <ScrollToTop />
     </CartProvider>
   )

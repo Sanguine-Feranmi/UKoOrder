@@ -16,9 +16,9 @@ export default function RestaurantList({ onSelectRestaurant }) {
   });
 
   return (
-    <div className="w-full py-10 px-4 md:px-10">
+    <div className="w-full py-6 md:py-10 px-4 md:px-8 lg:px-10">
       {/* Search and Filter */}
-      <div className="mb-8 space-y-4">
+      <div className="mb-6 md:mb-8 space-y-4">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
           <input
@@ -46,7 +46,7 @@ export default function RestaurantList({ onSelectRestaurant }) {
       </div>
 
       {/* Restaurant Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {filteredRestaurants.map((restaurant) => (
           <div
             key={restaurant.id}

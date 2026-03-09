@@ -3,7 +3,7 @@ import i1 from '/1.png'
 import i2 from '/2.png'
 import i3 from '/3.png'
 
-export default function Hero() {
+export default function Hero({ onNavigate }) {
 
   
   const cards = [
@@ -83,6 +83,7 @@ export default function Hero() {
               className="w-full h-[64px] rounded-full pl-6 pr-[72px] text-black bg-white outline-none"
             />
             <button
+              onClick={() => onNavigate?.('restaurants')}
               className="
                 absolute right-0 top-0
                 h-[64px] w-[64px]
@@ -95,6 +96,7 @@ export default function Hero() {
               <ChevronRight className="text-white" />
             </button>
             <button
+              onClick={() => onNavigate?.('restaurants')}
               className="
                 absolute right-0 top-0
                 h-[64px] hidden

@@ -2,7 +2,7 @@ import { BaggageClaim, MapPin, Phone, Download, ShoppingCart  } from 'lucide-rea
 import { useState } from 'react';
 import Bimg from '/Bimg.png'
 
-export default function Banner() {
+export default function Banner({ onNavigate }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const bannerData = {
@@ -39,7 +39,10 @@ export default function Banner() {
       <div className="flex items-center gap-2 text-sm">
         <MapPin size={16} className='text-secondary font-bold' />
         <span className='text-secondary font-bold' >{bannerData.location.address}</span>
-        <button className="ml-2 underline text-primary  hover:no-underline">
+        <button 
+          onClick={() => onNavigate?.('contact')}
+          className="ml-2 underline text-primary hover:no-underline cursor-pointer"
+        >
           {bannerData.location.changeText}
         </button>
       </div>
@@ -48,16 +51,18 @@ export default function Banner() {
         <div className="grid grid-cols-4 gap-1">
           {bannerData.actions.map((action, index) => {
             const IconComponent = action.icon;
+            const pageMap = { 'Orders': 'restaurants', 'Contact': 'contact', 'Location': 'contact', 'Download': 'home' };
             return (
-              <div 
+              <button
                 key={index}
-                className={`flex justify-center items-center p-2 hover:bg-gray-50 transition-colors ${
+                onClick={() => onNavigate?.(pageMap[action.label] || 'home')}
+                className={`flex justify-center items-center p-2 hover:bg-gray-50 transition-colors cursor-pointer ${
                   index > 0 ? 'border-l border-gray-200' : ''
                 }`}
                 title={action.label}
               >
                 <IconComponent size={20} className="text-white" />
-              </div>
+              </button>
             );
           })}
         </div>

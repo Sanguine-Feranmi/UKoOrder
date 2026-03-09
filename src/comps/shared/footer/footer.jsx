@@ -9,7 +9,7 @@ import {
   importantLinks
 } from "./footerData";
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   return (
     <footer className="w-full bg-[#ECECEC] mt-10">
 
@@ -18,11 +18,20 @@ export default function Footer() {
 
         {/* Logo Section */}
         <div>
-          <img src={logo} className="w-[160px]" />
+          <img 
+            src={logo} 
+            className="w-[160px] cursor-pointer" 
+            onClick={() => onNavigate?.('home')}
+            alt="Logo"
+          />
 
           <div className="flex gap-3 mt-4">
-            <img src={appstore} className="w-[120px]" />
-            <img src={playstore} className="w-[120px]" />
+            <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
+              <img src={appstore} className="w-[120px] cursor-pointer hover:opacity-80 transition" alt="App Store" />
+            </a>
+            <a href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+              <img src={playstore} className="w-[120px] cursor-pointer hover:opacity-80 transition" alt="Play Store" />
+            </a>
           </div>
 
           <p className="text-sm text-gray-600 mt-4">
@@ -44,7 +53,10 @@ export default function Footer() {
               className="flex-1 px-4 py-3 bg-transparent outline-none"
             />
 
-            <button className="bg-orange-500 text-white px-6 hover:bg-orange-600 transition">
+            <button 
+              type="button"
+              className="bg-orange-500 text-white px-6 hover:bg-orange-600 transition cursor-pointer"
+            >
               Subscribe
             </button>
           </div>
@@ -61,6 +73,8 @@ export default function Footer() {
                 <a
                   key={social.id}
                   href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 bg-white rounded-full shadow hover:scale-110 transition"
                 >
                   <Icon size={20} />
@@ -77,12 +91,12 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             {legalLinks.map((item) => (
               <li key={item.id}>
-                <a
-                  href={item.link}
-                  className="hover:text-orange-500"
+                <button
+                  onClick={() => onNavigate?.('contact')}
+                  className="hover:text-orange-500 cursor-pointer text-left"
                 >
                   {item.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -95,12 +109,20 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             {importantLinks.map((item) => (
               <li key={item.id}>
-                <a
-                  href={item.link}
-                  className="hover:text-orange-500"
+                <button
+                  onClick={() => {
+                    const pageMap = {
+                      'Get help': 'contact',
+                      'Add your restaurant': 'contact',
+                      'Sign up to deliver': 'contact',
+                      'Create a business account': 'contact'
+                    };
+                    onNavigate?.(pageMap[item.label] || 'home');
+                  }}
+                  className="hover:text-orange-500 cursor-pointer text-left"
                 >
                   {item.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -113,11 +135,11 @@ export default function Footer() {
 
         <p>Order.uk Copyright 2024, All Rights Reserved.</p>
 
-        <div className="flex gap-6">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-          <a href="#">Pricing</a>
-          <a href="#">Do not sell or share my personal information</a>
+        <div className="flex gap-6 flex-wrap">
+          <button onClick={() => onNavigate?.('contact')} className="hover:text-orange-400 transition cursor-pointer">Privacy Policy</button>
+          <button onClick={() => onNavigate?.('contact')} className="hover:text-orange-400 transition cursor-pointer">Terms</button>
+          <button onClick={() => onNavigate?.('contact')} className="hover:text-orange-400 transition cursor-pointer">Pricing</button>
+          <button onClick={() => onNavigate?.('contact')} className="hover:text-orange-400 transition cursor-pointer text-sm">Do not sell or share my personal information</button>
         </div>
 
       </div>

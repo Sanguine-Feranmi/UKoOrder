@@ -3,13 +3,13 @@ import { popData } from "./popData";
 export default function PopRest({ restaurants = popData }) {
     return (
         <section className="w-full py-10">
-            <div className="flex items-center justify-between mb-6 px-4 md:px-10">
-                <h2 className="text-2xl md:text-3xl font-bold">
+            <div className="flex items-center justify-between mb-6 px-4 md:px-8 lg:px-10">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
                     Popular Restaurants
                 </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-6 px-4 md:px-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 px-4 md:px-8 lg:px-10">
                 {restaurants.map((restaurant) => (
                     <div
                         key={restaurant.id}

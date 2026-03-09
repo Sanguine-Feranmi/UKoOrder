@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function MenuCard({ menu }) {
+export default function MenuCard({ menu, onClick }) {
   return ( 
-    <Link
-      to={`/menu/${menu.id}`}
-      className="relative min-w-[320px] h-[220px] rounded-xl overflow-hidden group shadow-md"
+    <div
+      onClick={onClick}
+      className="relative w-full h-[220px] rounded-xl overflow-hidden group shadow-md cursor-pointer hover:shadow-xl transition-all"
     >
       {/* Image */}
       <img
@@ -30,6 +30,6 @@ export default function MenuCard({ menu }) {
           {menu.name}
         </h3>
       </div>
-    </Link>
+    </div>
   );
 }

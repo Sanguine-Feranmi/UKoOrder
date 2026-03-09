@@ -68,7 +68,7 @@ export function NavigationMenuDemo({ onNavigate, currentPage }) {
   };
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-sm relative">
+    <nav className="flex items-center justify-between px-4 md:px-6 lg:px-8 py-3 md:py-4 bg-white shadow-sm relative">
       {/* Logo Section */}
       <div className="flex items-center">
         <button onClick={() => handleNavigation('home')}>

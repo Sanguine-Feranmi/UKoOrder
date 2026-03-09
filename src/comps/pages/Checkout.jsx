@@ -67,7 +67,7 @@ export default function Checkout({ onBack }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 md:px-10">
+    <div className="min-h-screen bg-gray-50 py-6 md:py-10 px-4 md:px-8 lg:px-10">
       <button
         onClick={onBack}
         className="flex items-center gap-2 text-gray-600 hover:text-primary mb-6 transition-colors"
@@ -80,20 +80,20 @@ export default function Checkout({ onBack }) {
         {/* Form Section */}
         <div className="md:col-span-2">
           <div className="bg-white rounded-xl shadow-md p-6">
-            <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-6">Checkout</h1>
 
             {/* Progress Steps */}
-            <div className="flex items-center justify-between mb-8">
-              <div className={`flex items-center gap-2 ${step >= 1 ? 'text-primary' : 'text-gray-400'}`}>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? 'bg-primary text-white' : 'bg-gray-200'}`}>1</div>
-                <span className="text-sm font-medium">Delivery</span>
+            <div className="flex items-center justify-between mb-6 md:mb-8">
+              <div className={`flex items-center gap-1 md:gap-2 ${step >= 1 ? 'text-primary' : 'text-gray-400'}`}>
+                <div className={`w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-sm ${step >= 1 ? 'bg-primary text-white' : 'bg-gray-200'}`}>1</div>
+                <span className="text-xs md:text-sm font-medium">Delivery</span>
               </div>
-              <div className="flex-1 h-1 bg-gray-200 mx-4">
+              <div className="flex-1 h-1 bg-gray-200 mx-2 md:mx-4">
                 <div className={`h-full ${step >= 2 ? 'bg-primary' : 'bg-gray-200'}`} style={{ width: step >= 2 ? '100%' : '0%' }}></div>
               </div>
-              <div className={`flex items-center gap-2 ${step >= 2 ? 'text-primary' : 'text-gray-400'}`}>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 2 ? 'bg-primary text-white' : 'bg-gray-200'}`}>2</div>
-                <span className="text-sm font-medium">Payment</span>
+              <div className={`flex items-center gap-1 md:gap-2 ${step >= 2 ? 'text-primary' : 'text-gray-400'}`}>
+                <div className={`w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-sm ${step >= 2 ? 'bg-primary text-white' : 'bg-gray-200'}`}>2</div>
+                <span className="text-xs md:text-sm font-medium">Payment</span>
               </div>
             </div>
 
